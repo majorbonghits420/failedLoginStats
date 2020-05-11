@@ -5,8 +5,20 @@ The plan is to have a series of python/bash scripts that take in some data from 
 
 Current scripts:
 
-- None
+- usernameStats.sh
 
 ## Requirements
 
 - Bash
+- head
+- awk
+- sort
+- uniq
+- getopts
+
+# Scripts
+
+## usernameStats.sh
+
+Lets you know how many times a username failed a login.
+Prints the number of failed logins per user in reverse order.

@@ -15,6 +15,11 @@ Current scripts:
 - sort
 - uniq
 - getopts
+- paste
+- bc
+- lastb
+- wc
+- printf
 
 # Scripts
 

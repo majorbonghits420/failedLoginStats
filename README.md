@@ -9,4 +9,4 @@ Current scripts:
 
 ## Requirements
 
-- Python 3.x
+- Bash

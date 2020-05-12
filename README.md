@@ -6,6 +6,7 @@ The plan is to have a series of python/bash scripts that take in some data from 
 Current scripts:
 
 - usernameStats.sh
+- ipStats.py
 
 ## Requirements
 
@@ -20,6 +21,9 @@ Current scripts:
 - lastb
 - wc
 - printf
+- Python 3.6+ (3.6 features are in use)
+- GeoLite2-City database
+- geoip2 python module
 
 # Scripts
 
@@ -27,3 +31,12 @@ Current scripts:
 
 Lets you know how many times a username failed a login.
 Prints the number of failed logins per user in reverse order.
+
+## ipStats.py
+
+Some stats based on the IPs of failed login attempts.
+Prints the country code and number of attempted logins in reverse order.
+
+## genIpList.sh
+
+Creates a list of IPs based on the supplied btmp style file.

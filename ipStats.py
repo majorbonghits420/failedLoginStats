@@ -5,6 +5,7 @@
 
 import argparse
 import geoip2.database
+import maxminddb
 import socket
 import sys
 
@@ -18,8 +19,11 @@ argParser.add_argument('-t', '--total', required=False, help="Prints total perce
 args = argParser.parse_args()
 
 # create reader object for the database
-dbReader = geoip2.database.Reader(args.database)
-
+try:
+    dbReader = geoip2.database.Reader(args.database)
+except maxminddb.errors.InvalidDatabaseError:
+    print("{} is not a valid database file".format(args.database))
+    sys.exit(1)
 # Create our dictionary to keep track of how many times each country attempted to login
 cunts = {} # named for people who try to get in
 # Lets process the file

@@ -1,8 +1,5 @@
 #! /bin/python3
 
-# Assumes it takes in a file argument which has one IP per line
-# I made mine with lastb -f <file> -a | head -n -2 | awk '{print $3}' > <newFile>
-
 import argparse
 import geoip2.database
 import maxminddb
@@ -42,7 +39,7 @@ with open(args.ipList, 'r') as ipFile:
             totalAttempts += 1
         except OSError:
             invalidIPs += 1
-print("Country Attempts Percentage")
+
 # Sort the dictionary based on value, descending order
 sortedCunts = {k : v for k, v in sorted(cunts.items(), key = lambda item: item[1], reverse=True)}
 linesToPrint=len(sortedCunts)
@@ -53,6 +50,7 @@ if args.lines is not None:
     linesToPrint=min(args.lines, linesToPrint)
 printedAttempts=0
 printedLines = linesToPrint # save for displaying later
+print("Country Attempts Percentage")
 for key, value in sortedCunts.items():
     if args.percentage:
         print("{:<4} : {:>5} ({:>.2f}%) ".format(key, value, value / totalAttempts * 100))
